@@ -1,0 +1,14 @@
+//
+// Prefix header for all source files of the 'NRInstagramKit' target in the 'NRInstagramKit' project
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+#define CLIENT_ID               @"85a6603d415c473480bdf1fba29a2972"
+#define CLIENT_SECRET           @"00e1bcdce40240e3817e3d1960e402e0"
+#define CALLBACK_URL            @"http://www.homeschooldev.com"//replace in InstagramLoginDelegate.m too!
+
+#endif
+

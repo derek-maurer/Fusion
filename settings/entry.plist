@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>bundle</key>
+		<string>FusionSettings</string>
+		<key>cell</key>
+		<string>PSLinkListCell</string>
+		<key>defaults</key>
+		<string>com.homeschooldev.fusionselection</string>
+		<key>detail</key>
+		<string>HSFusionSettings</string>
+		<key>icon</key>
+		<string>Fusion_Icon.png</string>
+		<key>isController</key>
+		<string>1</string>
+		<key>label</key>
+		<string>Fusion</string>
+	</dict>
+</dict>
+</plist>

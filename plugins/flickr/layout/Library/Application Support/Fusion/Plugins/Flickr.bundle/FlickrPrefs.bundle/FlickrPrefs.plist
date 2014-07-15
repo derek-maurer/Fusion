@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FlickrPrefs</string>
+			<key>id</key>
+			<string>Enabled</string>
+			<key>key</key>
+			<string>Enabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FlickrPrefs</string>
+			<key>key</key>
+			<string>Location</string>
+			<key>label</key>
+			<string>Location</string>
+			<key>id</key>
+			<string>Location</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FlickrPrefs</string>
+			<key>id</key>
+			<string>Auto Selection</string>
+			<key>key</key>
+			<string>Auto Selection</string>
+			<key>label</key>
+			<string>Auto Selection</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>This feature will upload all photos to Flickr rather than each of the individual networks, which will increase the speed of the post.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>label</key>
+			<string>Upload all to Flickr</string>
+			<key>defaults</key>
+			<string>com.homeschooldev.FlickrPrefs</string>
+			<key>key</key>
+			<string>allEnabled</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>Activation</string>
+			<key>action</key>
+			<string>auth:</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Flickr</string>
+</dict>
+</plist>

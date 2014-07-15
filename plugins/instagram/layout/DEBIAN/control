@@ -1,0 +1,10 @@
+Package: com.homeschooldev.InstagramPlugin
+Name: Instagram
+Depends: firmware (>= 5.0), com.homeschooldev.fusion
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome fusion plugin!
+Maintainer: Home School Dev
+Author: Home School Dev
+Section: Addons (Fusion)
+Tag: role::developer

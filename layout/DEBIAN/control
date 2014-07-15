@@ -1,0 +1,10 @@
+Package: com.homeschooldev.fusion
+Name: Fusion
+Depends: firmware (>= 5.0), mobilesubstrate, preferenceloader
+Version: 0.0.7
+Architecture: iphoneos-arm
+Description: A tweak that extends Twitter on iOS 5
+	Fusion is an iOS tweak that allows you to post to multiple social networks from Apple's integrated Twitter API. Fusion currently supports posting to Twitter, Facebook, MySpace, and Foursquare. One of the coolest features of Fusion is that it has a working plugin system for the social networks; meaning, any developer can add a social network to Fusion without having to make any updates to Fusion itself. Another great feature of Fusion is that it is integrated directly into Apple's Twitter API, so any developer of a third party app who uses Apple's API will be allowing you to post to all of the networks that Fusion supports. Fusion also includes quick composing via Activator so that you don't even have to enter an app to post to all the networks that Fusion supports. Yet another amazing feature of Fusion is that it is directly integrated with Siri. This allows you to quickly compose and send posts to all of the networks that Fusion supports. Say a phrase like "post status to (your choice of networks) saying (your status)" or "post status saying (your status)" to compose a status with Fusion. Here is a list of features for Fusion: - Post to multiple social networks like Twitter, Facebook, MySpace, and Foursquare (more to come) - Compose a status with Siri - Quick composing with Activator - Change 'Tweet' text in apps to anything you want (Example: 'Tweet' to 'Share') - Post current playing song - Attach pictures directly to Fusion - Post more than 140 characters to all of your social networks - Post multiple photos to Twitter via TwitPic Fusion is fully supported on all iOS device with firmware higher than or equal to 5.0 Fusion is an incredible tweak and will continue to grow.
+Maintainer: Home School Dev
+Author: Home School Dev
+Section: Tweaks

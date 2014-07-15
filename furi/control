@@ -1,0 +1,9 @@
+Package: com.homeschooldev.furi
+Name: Furi
+Depends: firmware (>= 5.0)
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: A siri extension that is used with Fusion. Say a phrase like 'post status to Facebook Twitter and MySpace saying <your status>' and it shows the normal Fusion screen allowing you to post to all of the networks of your choosing.
+Maintainer: Home School Dev
+Author: Home School Dev
+Section: Addons (AssistantExtensions)

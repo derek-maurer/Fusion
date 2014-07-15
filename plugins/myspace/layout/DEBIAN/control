@@ -1,0 +1,10 @@
+Package: com.homeschooldev.facebookplugin
+Name: FacebookPlugin
+Depends: 
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome Fusion plugin!
+Maintainer: Home School Dev
+Author: Home School Dev
+Section: System
+Tag: role::developer

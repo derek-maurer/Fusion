@@ -1,0 +1,61 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red100\green14\blue47;}
+\margl1440\margr1440\vieww16640\viewh11680\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Fusion Plugin API\
+\
+In order to develop a plugin for Fusion, you must download Theos to build your project (more info here: {\field{\*\fldinst{HYPERLINK "http://iphonedevwiki.net/index.php/Theos/Getting_Started"}}{\fldrslt http://iphonedevwiki.net/index.php/Theos/Getting_Started}}). Once you have Theos up an running you must copy the fusion_plugin.nic file to a subdirectory in Theos. Usually Theos will be installed in /opt/theos, but if you specified a different path upon installation, use that path. Copy the fusion_plugin.nic file to /opt/theos/templates/iphone. Once you have done that you can start creating your project.\
+\
+
+\b Creating a Fusion plugin with Theos
+\b0 :\
+\
+Execute the nic.pl file in /opt/theos/bin. Example: /opt/theos/bin/nic.pl\
+\
+You will then get a choice of what type of project you wish to create\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf2 NIC 1.0 - New Instance Creator\
+------------------------------\
+  [1.] iphone/application\
+  [2.] iphone/cydget\
+  [3.] iphone/fusion_plugin\
+  [4.] iphone/library\
+  [5.] iphone/notification_center_widget\
+  [6.] iphone/preference_bundle\
+  [7.] iphone/sbsettingstoggle\
+  [8.] iphone/siri_command\
+  [9.] iphone/siri_snippet\
+  [10.] iphone/tool\
+  [11.] iphone/tweak\
+Choose a Template (required): 
+\b0 \cf0 \
+\
+Choose the "iPhone/fusion_plugin" option (#3) to start creating a plugin for Fusion.\
+\
+Creating the project is finished! All that's left to do is to write some code, which will be left up to you ;)\
+\
+NOTE:\
+\
+- You icon should go in your main bundle (/Library/Application Support/Fusion/Plugins/yourplugin.bundle/yourimage.png)\
+\
+-  There is no need to put the Enabled, Location, and Auto Selection specifiers in the preferences bundle because they will be auto inserted. \
+\
+- If you save your access tokens to a file, make sure to delete the file in a prerm script so that the access tokens aren't saved if your plugin is uninstalled.\
+\
+- DO NOT make any UI changes from the plugin binary! This binary is run inside a daemon and it will crash the daemon if you make UI changes from here.\
+\
+- YOU MUST CALL - (void)postComplete when all posting is finished. If you do not Fusion will not function properly. \
+\
+- YOU SHOULD rename all the class names in common API libraries to prevent issues. For example, Facebook's API uses SBJSON; you should rename this to something along the lines of <prefix><classname> (HSSBJSON). Doing this will prevent issues with other plugins that might use the same class names as you. Not doing this could result in unexpected behavior with your plugin or crashing.\
+\
+- If you're having trouble figuring out how the plugin system works you can find an example plugin here: {\field{\*\fldinst{HYPERLINK "https://github.com/HomeSchoolDev/facebookplugin"}}{\fldrslt https://github.com/HomeSchoolDev/facebookplugin}}\
+\
+If you need any help with writing the code or are confused about the API you can contact me at the following locations:\
+\
+Twitter: @homeschooldev\
+Email: derek@homeschooldev.com\
+IRC: #theos (irc.saurik.com), #understruction (irc.evilpengu.in)}

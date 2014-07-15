@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>By downloading this tweak you are agreeing to the following,
+
+If the location button on the Twitter compose sheet is pressed, then the developer of the plugin has the right to publish your location to the tweet, post, etc.. If you find that the developer is using your location inappropriately, please report it to me at derek@homeschooldev.com. 
+
+I am in no way responsible for what happens to your post data once it has been sent to the plugin. </string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Legal</string>
+</dict>
+</plist>

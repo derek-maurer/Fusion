@@ -1,0 +1,15 @@
+Fusion change log:
+
+0.0.5
+
+- removed dependency for activator
+- added support for any tone at post completion
+- removed the need for a twitter account to use fusion
+- post current song
+- attach a picture to twitter sheet
+- fixed bug with Facebook auth window
+- added a bug fix to remove access tokens when tweak is being uninstalled
+- added an activator plugin with the ability to press the home button to dismiss
+- added a function in settings to change app strings. For example: change Tweet to Share
+- fixed bug with photos uploading sideways
+- fixed bug that was causing SpringBoard to crash

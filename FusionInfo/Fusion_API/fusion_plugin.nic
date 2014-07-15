@@ -1,0 +1,275 @@
+dir layout
+dir layout/Library
+dir layout/Library/Application Support
+dir layout/Library/Application Support/Fusion
+dir layout/Library/Application Support/Fusion/Plugins
+dir layout/Library/Application Support/Fusion/Plugins/@@PROJECTNAME@@.bundle
+
+file 8 @@PROJECTNAME@@.h
+#import <CoreLocation/CoreLocation.h>
+#import "Fusion.h"
+
+@interface @@PROJECTNAME@@ : NSObject <FusionPlugin> {
+    id <FusionPluginDelegate> delegate;
+}
+@property (nonatomic, retain) id <FusionPluginDelegate> delegate;
+@end
+
+file 24 @@PROJECTNAME@@.m
+#import "@@PROJECTNAME@@.h"
+
+@implementation @@PROJECTNAME@@
+@synthesize delegate;
+
+- (id)initWithMessage:(NSString *)message images:(NSArray *)images location:(CLLocation *)location andDelegate:(id<FusionPluginDelegate>)del {
+    if ((self = [super init])) {
+    	self.delegate = del;
+    	//You should initialize your API and make the post here.
+    }
+    return self;
+}
+
++ (int)maxCharacterCount {
+	//return the number of characters allowed in a single post.
+    return 140;
+}
+
+- (void)dealloc {
+	[delegate release];
+    [super dealloc];
+}
+
+@end
+
+file 9 @@PROJECTNAME@@View.h
+#import <CoreLocation/CoreLocation.h>
+#import "Fusion.h"
+
+@interface @@PROJECTNAME@@View : NSObject <FusionView> {
+    id<FusionViewDelegate> delegate;
+    UIView *view;
+}
+@property (nonatomic, retain) id<FusionViewDelegate> delegate;
+@end
+
+file 33 @@PROJECTNAME@@View.m
+#import "@@PROJECTNAME@@View.h"
+
+@implementation @@PROJECTNAME@@View
+@synthesize delegate;
+
+- (id)initWithData:(NSDictionary *)data location:(CLLocation *)location andDelegate:(id<FusionViewDelegate>)del {
+	if ((self = [super init])) {
+		self.delegate = del;
+		//Settings the frame of your view doesn't matter because it will be set by Fusion
+		view = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,460)];
+		view.backgroundColor = [UIColor redColor];
+	}
+	return self;
+}
+
+- (BOOL)shouldAppearBeforePost {
+	//If this is YES then your view will appear when the user taps 'send'.
+	//DON'T abuse this feature!!! It should only be used if your post requires user input.
+	return YES;
+}
+
+- (id)view {
+	//Here you should return your view that you want to appear to the user
+	return view;
+}
+
+- (void)dealloc {
+	[delegate release];
+	[view release];
+	[super dealloc];
+}
+
+@end
+
+file 5 @@PROJECTNAME@@Prefs.h
+#import <Preferences/PSListController.h>
+
+@interface @@PROJECTNAME@@Prefs : PSListController
+- (void)auth:(id)sender;
+@end
+
+file 16 @@PROJECTNAME@@Prefs.m
+#import "@@PROJECTNAME@@Prefs.h"
+
+@implementation @@PROJECTNAME@@Prefs
+
+- (id)specifiers {
+	if (_specifiers == nil) {
+		_specifiers = [[self loadSpecifiersFromPlistName:@"@@PROJECTNAME@@Prefs" target:self] retain];
+	}
+	return _specifiers;
+}
+
+-(void)auth:(id)sender {
+	//Initialize your auth viewcontroller and present it here
+}
+
+@end
+
+file 44 Fusion.h
+@protocol FusionPluginDelegate <NSObject>
+@optional
+//This method will post a message to an alert view that gets shown after all post are completed.
+//PLEASE use this method instead of using UIAlertView!!!
+- (void)postMessage:(NSString*)message;
+//********YOU MUST CALL THIS METHOD WHEN POST IS COMPLETE***********//
+- (void)postComplete;
+@end
+
+@protocol FusionViewDelegate <NSObject>
+@optional
+//This method will close the your view.
+- (void)closeView;
+@end
+
+@protocol FusionView <NSObject>
+@required
+- (id)initWithData:(NSDictionary *)data location:(CLLocation *)location andDelegate:(id<FusionViewDelegate>)delegate;
+//You should return your view with this method.
+- (id)view;
+//This method will get called when the user hits 'send'. 
+//If this method returns yes, your view will be shown before the message is sent.
+- (BOOL)shouldAppearBeforePost;
+@optional
+- (void)viewWillAppear;
+- (void)viewDidAppear;
+- (void)viewWillDisappear;
+- (void)viewDidDisappear;
+//This method will tell you the size of the view. NOTE, you 
+//cannot (shouldn't) set the size of the view! Set it to whatever you please upon initialization,
+//but once -(id)view is called, do NOT set the size of the view.
+- (void)viewUpdatedWithFrame:(CGRect)frame;
+- (void)willAnimateRotationToInterfaceOrientation:(int)orientation withDuration:(double)duration;
+//This method will be called when the user taps the 'Add Location' button.
+- (void)locationButtonTappedOnWithLocation:(CLLocation*)location;
+//This method will be called when the user removes the added location.
+- (void)locationButtonTappedOff;
+@end
+
+@protocol FusionPlugin <NSObject>
+@required
++ (int)maxCharacterCount;
+- (id)initWithMessage:(NSString *)message images:(NSArray *)images location:(CLLocation *)location andDelegate:(id<FusionPluginDelegate>)delegate;
+@end
+
+file 13 Makefile
+include theos/makefiles/common.mk
+
+BUNDLE_NAME = @@PROJECTNAME@@ @@PROJECTNAME@@Prefs
+@@PROJECTNAME@@_FILES = @@PROJECTNAME@@.m @@PROJECTNAME@@View.m
+@@PROJECTNAME@@_FRAMEWORKS = UIKit CoreLocation
+@@PROJECTNAME@@_INSTALL_PATH = /Library/Application Support/Fusion/Plugins
+
+@@PROJECTNAME@@Prefs_FILES = @@PROJECTNAME@@Prefs.m
+@@PROJECTNAME@@Prefs_INSTALL_PATH = /Library/Application Support/Fusion/Plugins/@@PROJECTNAME@@.bundle
+@@PROJECTNAME@@Prefs_FRAMEWORKS = UIKit 
+@@PROJECTNAME@@Prefs_PRIVATE_FRAMEWORKS = Preferences
+
+include $(THEOS_MAKE_PATH)/bundle.mk
+
+dir layout/DEBIAN
+file 10 layout/DEBIAN/control
+Package: @@PACKAGENAME@@
+Name: @@PROJECTNAME@@
+Depends: firmware (>= 5.0), com.homeschooldev.fusion
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome fusion plugin!
+Maintainer: @@USER@@
+Author: @@USER@@
+Section: Addons (Fusion)
+Tag: role::developer
+
+file 34 layout/Library/Application Support/Fusion/Plugins/@@PROJECTNAME@@.bundle/Info.plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>@@PROJECTNAME@@</string>
+	<key>CFBundleIdentifier</key>
+	<string>@@PACKAGENAME@@</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>DTPlatformName</key>
+	<string>iphoneos</string>
+	<key>MinimumOSVersion</key>
+	<string>5.0</string>
+	<key>NSPrincipalClass</key>
+	<string>@@PROJECTNAME@@</string>
+	<key>PluginViewClass</key>
+	<string>@@PROJECTNAME@@View</string>
+	<key>PreferenceBundleName</key>
+	<string>@@PROJECTNAME@@Prefs</string>
+	<key>ServiceTitle</key>
+	<string>@@PROJECTNAME@@</string>
+</dict>
+</plist>
+
+dir layout/Library/Application Support/Fusion/Plugins/@@PROJECTNAME@@.bundle/@@PROJECTNAME@@Prefs.bundle
+file 28 layout/Library/Application Support/Fusion/Plugins/@@PROJECTNAME@@.bundle/@@PROJECTNAME@@Prefs.bundle/Info.plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>@@PROJECTNAME@@Prefs</string>
+	<key>CFBundleIdentifier</key>
+	<string>@@PACKAGENAME@@prefs</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>DTPlatformName</key>
+	<string>iphoneos</string>
+	<key>MinimumOSVersion</key>
+	<string>3.0</string>
+	<key>NSPrincipalClass</key>
+	<string>@@PROJECTNAME@@Prefs</string>
+</dict>
+</plist>
+
+file 19 layout/Library/Application Support/Fusion/Plugins/@@PROJECTNAME@@.bundle/@@PROJECTNAME@@Prefs.bundle/@@PROJECTNAME@@Prefs.plist
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>Activation</string>
+			<key>action</key>
+			<string>auth:</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>@@PROJECTNAME@@</string>
+</dict>
+</plist>

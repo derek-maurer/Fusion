@@ -1,0 +1,7 @@
+#!/bin/sh
+chown root:wheel /usr/bin/fusiond
+chmod 755 /usr/bin/fusiond
+chown root:wheel /Library/LaunchDaemons/com.homeschooldev.fusiond.plist
+chmod 644 /Library/LaunchDaemons/com.homeschooldev.fusiond.plist
+/bin/launchctl load -w /Library/LaunchDaemons/com.homeschooldev.fusiond.plist
+exit 0

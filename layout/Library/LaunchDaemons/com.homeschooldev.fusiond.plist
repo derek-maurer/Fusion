@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.homeschooldev.fusiond</string>
+	<key>Program</key>
+	<string>/usr/bin/fusiond</string>
+	<key>WatchPaths</key>
+	<array>
+		<string>/User/Library/Keyboard/com.homeschooldev.fusion.watch.plist</string>
+	</array>
+</dict>
+</plist>

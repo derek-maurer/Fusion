@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FacebookPluginPrefs</string>
+			<key>id</key>
+			<string>Enabled</string>
+			<key>key</key>
+			<string>Enabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FacebookPluginPrefs</string>
+			<key>key</key>
+			<string>Location</string>
+			<key>label</key>
+			<string>Location</string>
+			<key>id</key>
+			<string>Location</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FacebookPluginPrefs</string>
+			<key>id</key>
+			<string>Auto Selection</string>
+			<key>key</key>
+			<string>Auto Selection</string>
+			<key>label</key>
+			<string>Auto Selection</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FacebookPluginPrefs</string>
+			<key>key</key>
+			<string>suppress</string>
+			<key>label</key>
+			<string>Suppress Photo Uploads</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Suppresses photo uploads so that they do not appear on your feed while simultaneously appearing in your status.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>label</key>
+			<string>Insert Photos As Links</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.homeschooldev.FacebookPluginPrefs</string>
+			<key>key</key>
+			<string>PhotoLinks</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>This will insert photos as links into your statuses so that you may have more than one photo per status.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>Photo Upload Album</string>
+			<key>action</key>
+			<string>photoAlbum:</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Choose the album where Fusion will upload photos</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>label</key>
+			<string>Activation</string>
+			<key>action</key>
+			<string>auth:</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Facebook</string>
+</dict>
+</plist>

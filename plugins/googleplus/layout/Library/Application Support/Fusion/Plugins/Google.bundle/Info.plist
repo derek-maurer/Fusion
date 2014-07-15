@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Google</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.homeschooldev.google+</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>DTPlatformName</key>
+	<string>iphoneos</string>
+	<key>MinimumOSVersion</key>
+	<string>5.0</string>
+	<key>NSPrincipalClass</key>
+	<string>Google</string>
+	<key>PluginViewClass</key>
+	<string>GoogleView</string>
+	<key>PreferenceBundleName</key>
+	<string>GooglePrefs</string>
+	<key>ServiceTitle</key>
+	<string>Google</string>
+</dict>
+</plist>
